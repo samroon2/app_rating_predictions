@@ -17,16 +17,17 @@ class TextClean:
 
     def __init__(self, data_location, **kwargs):
         self.data_location = data_location
+        self.dir_setup= kwargs.get('dir_setup', False) 
         self.data = []
         self.app_name = kwargs.get('app_name', False)
         self.exisiting = []
         self.dir_prep()
 
     def dir_prep(self):
-        if 'temp_pre' not in os.listdir('.'):
+        if self.dir_setup and 'temp_pre' not in os.listdir('.') and self.dir_setup:
             os.mkdir('temp_pre')
         else:
-            [self.exisiting.append(x) for x in os.listdir('./temp_pre')]
+            [self.exisiting.append(x) for x in os.listdir('./temp_pre')] if self.dir_setup else None
 
     def load_data(self):
         for file in os.listdir(self.data_location):
