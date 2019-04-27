@@ -1,7 +1,7 @@
 import keras
 import os, json, sys, pickle
 import tensorflow as tf
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, make_response
 from keras.preprocessing.sequence import pad_sequences
 from sklearn.externals import joblib
 sys.path.insert(0, '../code/')
@@ -39,7 +39,7 @@ def predict_stars():
 
 	# Check request isn't empty or missing required information.	
 	if not postjson or [x for x in ['review', 'title'] if x not in postjson.keys()]:
-		return(bad_request())
+		return make_response(jsonify({'error': 'Missing required information, "title" or "review".'}), 400)
 
 	title = postjson['title']
 	review = postjson['review']
