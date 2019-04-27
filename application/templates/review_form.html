@@ -1,0 +1,77 @@
+{% extends "header.html" %}
+
+{% block content %}
+
+<section id="contact">
+  <div class="container" style="padding-top: 100px">
+    <h2 class="text-center text-uppercase text-secondary mb-0">Input Review</h2><br />
+    <br />
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <form name="sentMessage" id="contactForm" novalidate="novalidate" onsubmit="return confirm('Submitting review to predict the stars.');">
+        </div>
+        </div>
+          <h3>Select App:</h3>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+            <select name="app_name">
+              {% for app in app_names %}
+                {% if app == app_name %}
+                  <option selected value="{{ app }}">{{ app }}</option> 
+                {% else %} 
+                  <option value="{{ feature }}">{{ app }}</option> 
+                {% endif %}
+              {% endfor %}
+            </select>
+                {{ script|safe }}
+                {{ div|safe }}
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+              <label>Review Title</label>
+              {% if review_title %}
+                <input class="form-control" autocomplete="off" id="validationCustom01" value={{ review_title }} name="review_title" type="tel" placeholder="Review Title" required data-validation-required-message="Please enter a review title." required>
+              {% else %}                
+                <input class="form-control" autocomplete="off" id="validationCustom01" name="review_title" type="tel" placeholder="Review Title" required data-validation-required-message="Please enter a review title." required>
+              {% endif %}
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+              <label>Review</label>
+              {% if review %}
+                <textarea class="form-control" id="token" rows="3" name="review" type="password" placeholder="Description" required="required" data-validation-required-message="Please enter a review." required> {{ review }} </textarea>
+              {% else %}
+                <textarea class="form-control" id="token" rows="3" name="review" type="password" placeholder="Description" required="required" data-validation-required-message="Please enter a review." required></textarea>
+              {% endif %}
+              <p class="help-block text-danger"></p>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                <label>Stars</label>
+                {% if stars %}
+                  <input class="form-control" autocomplete="off" id="validationCustom01" value={{ stars }} name="stars" type="tel" placeholder="Stars" required data-validation-required-message="Stars will be predicted." required>
+                {% else %}                
+                  <input class="form-control" autocomplete="off" id="validationCustom01" name="stars" type="tel" placeholder="Stars" required data-validation-required-message="Stars will be predicted." required>
+                {% endif %}
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+          <br>
+          <div id="success"></div>
+            <div class="form-group">
+              {% if stars %}
+              <button type="Submit" class="btn btn-primary btn-xl" id="sendMessageButton">Submit</button>
+              {% else %}
+                <button type="check" class="btn btn-primary btn-xl" id="sendMessageButton">Get Stars</button>
+              {% endif %}
+            </div>    
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+{%endblock %}
