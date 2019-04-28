@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import os, json
-import pandas as pd
 import requests
 from flask import Flask, jsonify, request, url_for, make_response, render_template
 
