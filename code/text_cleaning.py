@@ -84,15 +84,15 @@ class TextClean:
         twos = []
         ones = []
         for n, i in enumerate(X):
-            if y[n] == '5 stars':
+            if y[n] == '5 stars' or y[n] == 5:
                 fives.append([i, y[n]])
-            elif y[n] == '4 stars':
+            elif y[n] == '4 stars' or y[n] == 4:
                 fours.append([i, y[n]])
-            elif y[n] == '3 stars':
+            elif y[n] == '3 stars' or y[n] == 3:
                 threes.append([i, y[n]])
-            elif y[n] == '2 stars':
+            elif y[n] == '2 stars' or y[n] == 2:
                 twos.append([i, y[n]])
-            elif y[n] == '1 star':
+            elif y[n] == '1 star' or y[n] == 1:
                 ones.append([i, y[n]])
                 
         data = []        
