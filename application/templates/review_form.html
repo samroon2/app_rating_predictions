@@ -50,6 +50,17 @@
             </div>
             <div class="control-group">
               <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                <label>Positive or Negative</label>
+                {% if pos %}
+                  <input class="form-control" autocomplete="off" id="validationCustom01" value={{ pos }} name="stars" type="tel" placeholder="Positive/Negative" required data-validation-required-message="Sentiment will be predicted." required>
+                {% else %}                
+                  <input class="form-control" autocomplete="off" id="validationCustom01" name="pos" type="tel" placeholder="Sentiment" required data-validation-required-message="Sentiment will be predicted." required>
+                {% endif %}
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls mb-0 pb-2">
                 <label>Stars</label>
                 {% if stars %}
                   <input class="form-control" autocomplete="off" id="validationCustom01" value={{ stars }} name="stars" type="tel" placeholder="Stars" required data-validation-required-message="Stars will be predicted." required>

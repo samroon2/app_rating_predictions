@@ -60,4 +60,4 @@ def predict_stars():
 	return (apiresponse)
 
 if __name__ == "__main__":
-	app.run(port=80)
+	app.run(port=81)

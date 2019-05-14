@@ -16,18 +16,26 @@ def review_form():
     apps = ['App 1']
 
     stars = False
+    pos = False
+    prob = False
 
     if review:
         headers = {'Content-Type': 'application/json', 'Accept': 'application/json'}
         data = {'title': review_title, 'review': review}
-        req = requests.post("http://127.0.0.1:80/score", data=json.dumps(data), headers=headers)
+        req = requests.post("http://127.0.0.1:81/score", data=json.dumps(data), headers=headers)
         stars=req.json()['stars']
+        req = requests.post("http://127.0.0.1:80/score", data=json.dumps(data), headers=headers)
+        pos = req.json()['pos_neg']
+        prob = req.json()['prob']
+        pos = f'{pos}:{prob}'
 
     return render_template("review_form.html", app_names=apps,
                             review_title=review_title if review_title else None,
                             review=review if review else None,
-                            stars=stars if stars else None)
+                            stars=stars if stars else None,
+                            pos=pos if pos else None
+                            )
 
 if __name__ == "__main__":
     app.debug = True
-    app.run()
+    app.run(port=5000)
