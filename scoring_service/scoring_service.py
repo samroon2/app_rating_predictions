@@ -15,7 +15,7 @@ session = tf.Session(config=config)
 
 # Open project info and load tokenizer.
 with open('project_info.json') as f:
-	info = json.loads(f.read())
+    info = json.loads(f.read())
 with open("./models/"+info['tokenizer'], 'rb') as handle:
     tokenizer = pickle.load(handle)
 
@@ -29,35 +29,35 @@ app = Flask(__name__)
 
 @app.route('/score', methods=['POST'])
 def predict_stars():
-	'''API scoring function, requires http POST request to contain 'title' and 'review'.
-	'''
+    '''API scoring function, requires http POST request to contain 'title' and 'review'.
+    '''
 
-	try:
-		postjson = request.json
-	except Exception as e:
-		raise e
+    try:
+        postjson = request.json
+    except Exception as e:
+        raise e
 
-	# Check request isn't empty or missing required information.	
-	if not postjson or [x for x in ['review', 'title'] if x not in postjson.keys()]:
-		return make_response(jsonify({'error': 'Missing required information, "title" or "review".'}), 400)
+    # Check request isn't empty or missing required information.    
+    if not postjson or [x for x in ['review', 'title'] if x not in postjson.keys()]:
+        return make_response(jsonify({'error': 'Missing required information, "title" or "review".'}), 400)
 
-	title = postjson['title']
-	review = postjson['review']
+    title = postjson['title']
+    review = postjson['review']
 
-	# Process request data.
-	clean_text = cleaner.clean(title+'. '+review)
+    # Process request data.
+    clean_text = cleaner.clean(title+'. '+review)
 
-	X = tokenizer.texts_to_sequences([clean_text])
-	X = pad_sequences(X, info['max_sequence'])
+    X = tokenizer.texts_to_sequences([clean_text])
+    X = pad_sequences(X, info['max_sequence'])
 
-	# Make prediction.
-	pred = model.predict(X)
+    # Make prediction.
+    pred = model.predict(X)
 
-	# Return prediction.
-	apiresponse = jsonify({'stars':pred.argmax(axis=1).tolist()[0]+1})
-	apiresponse.status_code = 200
+    # Return prediction.
+    apiresponse = jsonify({'stars':pred.argmax(axis=1).tolist()[0]+1})
+    apiresponse.status_code = 200
 
-	return (apiresponse)
+    return (apiresponse)
 
 if __name__ == "__main__":
-	app.run(port=81)
+    app.run(port=81)
