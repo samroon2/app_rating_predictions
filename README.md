@@ -15,7 +15,7 @@ The form is then completed by the user and submitted into a database (local sqli
 
 <img src="application/static/img/completed_form.PNG" width="60%" height="60%">
 
-Storing this information allows for back testing, monitoring model performance an re-training.
+Storing this information allows for back testing, monitoring model performance and re-training.
 
 The web application is built using flask, along with one of the api's, the other is built with quart.
-
+Model development code can be found in the corresponding notebooks.
