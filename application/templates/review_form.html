@@ -19,7 +19,7 @@
                 {% if app == app_name %}
                   <option selected value="{{ app }}">{{ app }}</option> 
                 {% else %} 
-                  <option value="{{ feature }}">{{ app }}</option> 
+                  <option value="{{ app }}">{{ app }}</option> 
                 {% endif %}
               {% endfor %}
             </select>
@@ -50,11 +50,33 @@
             </div>
             <div class="control-group">
               <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                <label>Predicted Sentiment</label>
+                {% if pred_pos %}
+                  <input class="form-control" autocomplete="off" id="validationCustom01" value={{ pred_pos }} name="pred_pos" type="tel" placeholder="Positive/Negative" required data-validation-required-message="Sentiment will be predicted." required>
+                {% else %}                
+                  <input class="form-control" autocomplete="off" id="validationCustom01" name="pred_pos" type="tel" placeholder="Predicted Sentiment" required data-validation-required-message="Sentiment will be predicted." required>
+                {% endif %}
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls mb-0 pb-2">
                 <label>Positive or Negative</label>
                 {% if pos %}
-                  <input class="form-control" autocomplete="off" id="validationCustom01" value={{ pos }} name="stars" type="tel" placeholder="Positive/Negative" required data-validation-required-message="Sentiment will be predicted." required>
+                  <input class="form-control" autocomplete="off" id="validationCustom01" value={{ pos }} name="pos" type="tel" placeholder="Positive/Negative" required data-validation-required-message="Sentiment will be predicted." required>
                 {% else %}                
                   <input class="form-control" autocomplete="off" id="validationCustom01" name="pos" type="tel" placeholder="Sentiment" required data-validation-required-message="Sentiment will be predicted." required>
+                {% endif %}
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                <label>Predicted Stars</label>
+                {% if pred_stars %}
+                  <input class="form-control" autocomplete="off" id="validationCustom01" value={{ pred_stars }} name="pred_stars" type="tel" placeholder="Predicted Stars" required data-validation-required-message="Stars will be predicted." required>
+                {% else %}                
+                  <input class="form-control" autocomplete="off" id="validationCustom01" name="pred_stars" type="tel" placeholder="Predicted Stars" required data-validation-required-message="Stars will be predicted." required>
                 {% endif %}
                 <p class="help-block text-danger"></p>
               </div>
@@ -73,7 +95,7 @@
           <br>
           <div id="success"></div>
             <div class="form-group">
-              {% if stars %}
+              {% if pred_stars %}
               <button type="Submit" class="btn btn-primary btn-xl" id="sendMessageButton">Submit</button>
               {% else %}
                 <button type="check" class="btn btn-primary btn-xl" id="sendMessageButton">Get Stars</button>
