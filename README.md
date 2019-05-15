@@ -5,4 +5,4 @@ Project presents a basic end to end data science project, including; a flask web
 
 The web application has a basic web form:
 
-<img src="application/static/img/blank_form.PNG">
+<img src="application/static/img/blank_form.PNG" width="60%" height="60%">
