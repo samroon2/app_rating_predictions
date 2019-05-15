@@ -40,7 +40,7 @@ class AppReview(db.Model):
         self.stars = stars
 
     def __repr__(self):
-        return str({'title': review_title, 'body':review, 'stars':stars, 'sent':sent})
+        return str({'title': self.review_title, 'body': self.review, 'stars': self.stars, 'sent': self.sent})
 
 
 @app.route('/')
@@ -64,14 +64,12 @@ def review_form():
     prob = False
 
     if review and sub_stars:
-        new_review = AppReview(app, review_title.strip(), review.strip(), predicted_pos, sub_pos, predicted_stars, sub_stars)
+        new_review = AppReview(app, review_title.strip(), review.strip(), predicted_pos.strip(), sub_pos.strip(), predicted_stars, sub_stars)
         db.session.add(new_review)
         db.session.commit()
         return render_template("review_form.html", app_names=apps,
-                                review_title=None,
-                                review=None,
-                                pred_stars=None,
-                                pred_pos=None
+                                review_title=None, review=None,
+                                pred_stars=None, pred_pos=None
                                 )
     if review:
         headers = {'Content-Type': 'application/json', 'Accept': 'application/json'}
