@@ -11,7 +11,7 @@ The form gets filled out by the user, the predict button is pressed and the info
 
 <img src="application/static/img/predicted_form.PNG" width="60%" height="60%">
 
-The form is then completed by the user and submitted through the form into a database (just a local sqlite db).
+The form is then completed by the user and submitted into a database (local sqlite db).
 
 <img src="application/static/img/completed_form.PNG" width="60%" height="60%">
 
