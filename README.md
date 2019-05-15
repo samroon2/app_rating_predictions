@@ -6,3 +6,7 @@ Project presents a basic end to end data science project, including; a flask web
 The web application has a basic web form:
 
 <img src="application/static/img/blank_form.PNG" width="60%" height="60%">
+
+The form gets filled out by the user, the predict button is pressed and the information is sent to the model services which then returns their predicitions:
+
+<img src="application/static/img/predicted_form.PNG" width="60%" height="60%">
