@@ -3,6 +3,7 @@ Predicting the number of stars for an app/game review left in the app store.
 
 Project presents a basic end to end data science project, including; 
 -  a flask web application which has a web form to allow user reviews to be submitted.
+-  data model (SQLAlchemy ORM) and sqlite database to store submitted data.
 -  two models which are deployed in sperate API's (microservices) that dynamically predict stars and the sentiment of the review (whether a review is positive or negative).
 
 The web application has a basic web form:
