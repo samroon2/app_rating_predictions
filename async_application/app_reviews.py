@@ -86,12 +86,9 @@ async def review_form():
         futures = [asyncio.ensure_future(get_pred(url, data)) for url in urls]
         preds = []
         for future in futures:
-            try:
-                resp = await future
-                preds.append(resp)
-            except Exception as e:
-                continue   
-        print(preds)        
+            resp = await future
+            preds.append(resp)
+      
         pred_stars = [x.get('pred').get('stars') for x in preds if x.get('url') == "http://127.0.0.1:81/score"][0]
         pos = [x.get('pred').get('pos_neg') for x in preds if x.get('url') == "http://127.0.0.1:80/score"][0]
         prob = [x.get('pred').get('prob') for x in preds if x.get('url') == "http://127.0.0.1:80/score"][0]
