@@ -3,6 +3,7 @@ Predicting the number of stars for an app/game review left in the app store.
 
 Project presents a basic end to end data science project, including; 
 -  a flask web application which has a web form to allow user reviews to be submitted.
+-  an async quart web application which has a web form to allow user reviews to be submitted, uses aiohttp to call microservices.
 -  data model (SQLAlchemy ORM) and sqlite database to store submitted data.
 -  two models which are deployed in sperate API's (microservices) that dynamically predict stars and the sentiment of the review (whether a review is positive or negative).
 
@@ -20,5 +21,5 @@ The form is then completed by the user and submitted into a database (local sqli
 
 Storing this information allows for back testing, monitoring model performance and re-training.
 
-The web application is built using flask, along with one of the API's, the other is built with quart.
+The web applicationa is built using flask and quart along with the API's (one in flask, one in quart).
 Model development code can be found in the corresponding notebooks.
