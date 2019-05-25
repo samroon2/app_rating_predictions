@@ -52,7 +52,7 @@
               <div class="form-group floating-label-form-group controls mb-0 pb-2">
                 <label>Predicted Sentiment</label>
                 {% if pred_pos %}
-                  <input class="form-control" autocomplete="off" id="validationCustom01" value={{ pred_pos }} name="pred_pos" type="tel" placeholder="Positive/Negative" required data-validation-required-message="Sentiment will be predicted." required>
+                  <input class="form-control" autocomplete="off" id="validationCustom01" value="{{ pred_pos }}" name="pred_pos" type="tel" placeholder="Positive/Negative" required data-validation-required-message="Sentiment will be predicted." required>
                 {% else %}                
                   <input class="form-control" autocomplete="off" id="validationCustom01" name="pred_pos" type="tel" placeholder="Predicted Sentiment" required data-validation-required-message="Sentiment will be predicted." required>
                 {% endif %}

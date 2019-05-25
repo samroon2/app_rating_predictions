@@ -79,7 +79,7 @@ def review_form():
         req = requests.post("http://127.0.0.1:80/score", data=json.dumps(data), headers=headers)
         pos = req.json()['pos_neg']
         prob = req.json()['prob']
-        pos = f'{pos}:{prob}'
+        pos = f'{pos}, {prob}'
 
     return render_template("review_form.html", app_names=apps,
                             review_title=review_title if review_title else None,
