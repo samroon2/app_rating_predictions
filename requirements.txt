@@ -1,9 +1,12 @@
-pandas==0.23.4
-nltk==3.4
-emoji==0.5.1
+aiohttp==3.5.4
 Keras==2.2.4
-Flask==1.0.2
+Quart==0.6.13
+pandas==0.23.4
 tensorflow_gpu==1.12.0
+Flask==1.0.2
 requests==2.21.0
-scikit_learn==0.20.3
+Flask_SQLAlchemy==2.4.0
+emoji==0.5.1
+nltk==3.4
+scikit_learn==0.21.2
 tensorflow==1.13.1
