@@ -82,7 +82,7 @@ async def review_form():
                                 )
     if review:
         data = {'title': review_title, 'review': review}
-        urls = {"http://127.0.0.1:81/score", "http://127.0.0.1:80/score"}
+        urls = ["http://127.0.0.1:81/score", "http://127.0.0.1:80/score"]
         futures = [asyncio.ensure_future(get_pred(url, data)) for url in urls]
         preds = []
         for future in futures:
