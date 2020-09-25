@@ -7,6 +7,6 @@ Flask==1.0.2
 requests==2.21.0
 Flask_SQLAlchemy==2.4.0
 emoji==0.5.1
-nltk==3.4
+nltk==3.4.5
 scikit_learn==0.21.2
 tensorflow==1.15.2
