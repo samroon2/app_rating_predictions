@@ -1,4 +1,4 @@
-aiohttp==3.5.4
+aiohttp==3.7.4
 Keras==2.2.4
 Quart==0.6.13
 pandas==0.23.4
